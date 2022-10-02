@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block con %}
+    <div class="container mt-5 mb-5">
+        <h1>
+            <b>SIGN UP</b>
+        </h1>
+
+        <form method="post" enctype="multipart/form-data" name="signupForm">
+            {% csrf_token %}
+            <div class="mb-3 mt-5">
+                <label class="form-label">아이디</label>
+                <input type="text" name="uname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">패스워드</label>
+                <input type="password" name="upass" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">사진</label>
+                <input type="file" name="upic" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">자기소개</label>
+                <textarea cols="50" rows="5" name="ucomm" class="form-control"></textarea>
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="button" onclick="check()" class="btn btn-dark">회원가입</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        function check(){
+            sg = document.signupForm;
+            if(sg.uname.value.length < 3){
+                alert("아이디를 3자 이상 입력해주세요...")
+            }
+            else if(sg.upass.value.length < 3){
+                alert("패스워드를 3자 이상 입력해주세요...")
+            }
+            else if(sg.ucomm.value.length < 3){
+                alert("자기소개를 3자 이상 입력해주세요...")
+            }
+            else{
+                sg.submit();
+            }
+        }
+    </script>
+
+
+{% endblock %}
+
+

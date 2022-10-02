@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block con %}
+    {% if user.is_authenticated %}
+        <div class="container mt-5 mb-5">
+            <h1>
+                <b>{{ user }}</b>
+                WELCOME 🎈
+            </h1>
+        </div>
+    {% else %}
+        <div class="container mt-5 mb-5">
+            <h1>
+                <b>LOGIN FIRST! 🙏🏼</b>
+            </h1>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+
+<!-- <h1>MAIN PAGE</h1>
+
+{% if user.is_authenticated %}
+
+    {{ user }} 님 !! <br><br>
+    <a href="{% url 'acc:profile' %}"><button>PROFILE</button></a>
+    <a href="{% url 'acc:logout' %}"><button>LOGOUT</button></a>
+{% else %}
+
+    <a href="{% url 'acc:signup' %}"><button>SIGNUP</button></a>
+    <a href="{% url 'acc:login' %}"><button>LOGIN</button></a>
+{% endif %} -->
+
